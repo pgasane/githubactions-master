@@ -1,4 +1,4 @@
-name: Building # Nombre del workflow
+name: Building # Nombre del workflow SOLO SIRVE PARA GitHub
 on:
   push:
     tags:
