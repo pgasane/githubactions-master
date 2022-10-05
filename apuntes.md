@@ -19,6 +19,19 @@ El código se ejecuta en un CONTENEDOR con la configuración específica que se 
 
 # PARA VER EN VIVO LA EJECUCIÓN DEL RUN
 "git run watch" va siguiendo el proceso con una presentación muy chula
+(base) GSN:gh-master pgasane$ gh run list
+STATUS  TITLE                                                                   WORKFLOW             BRANCH  EVENT  ID          ELAPSED  AGE
+✓       Push para ver el funcionamiento de "git run watch"                      Building             master  push   3190884986  29s      4m
+✓       pgasane is testing out GitHub Actions 🚀                                GitHub Actions Demo  master  push   3190884983  9s       4m
+✓       pgasane is testing out GitHub Actions 🚀                                GitHub Actions Demo  master  push   3190860983  21s      9m
+✓       Añadimos instalar poetry, ejecutar poetry build y mostrar la ruta del…  Building             master  push   3190860980  37s      9m
+✓       Añadir instalación de Poetry al build.yml y Ejecutar ls {{ github.wor…  Building             master  push   3190795652  16s      20m
+✓       pgasane is testing out GitHub Actions 🚀                                GitHub Actions Demo  master  push   3190795648  17s      20m
+✓       pgasane is testing out GitHub Actions 🚀                                GitHub Actions Demo  master  push   3190638203  13s      46m
+✓       Carga Apuntes Verificar GitHub funciona                                 Building             master  push   3190638202  11s      46m
+✓       pgasane is testing out GitHub Actions 🚀                                GitHub Actions Demo  master  push   3187496862  14s      10h
+
+# RELEASES
 
 
 
