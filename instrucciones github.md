@@ -57,3 +57,5 @@ ejecutes un comando más largo
 - Id a la página de vuestro github para ver el fichero README
 
 Si os pide: "Are you sure you want to continue connecting (yes/no/[fingerprint])?": yes
+
+# ¿Qué hacemos cuando el github se desconecta?
