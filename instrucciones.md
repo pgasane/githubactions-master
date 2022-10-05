@@ -35,3 +35,6 @@ C) tests
 # Distribuir el paquete
 - cambio de versión a la 0.1.1
 - poetry build
+
+# poetry.lock
+- usa HASH para asegurar que lo que se instala de poetry es lo que necesita el código
