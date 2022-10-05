@@ -8,3 +8,7 @@ jobs: # Solo vamos a ejecutar uno
       - uses: actions/setup-python@v4 
         with:
           python-version: '3.10'
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+      - run: poetry build # Ejecuto un comando de consola en el repositorio
+      - run: ls ${{ github.workspace }} # Ejecuto el comando de consola en el repositorio. Un ls del workspace, en este caso. Importante: ${{ github.workspace }}
