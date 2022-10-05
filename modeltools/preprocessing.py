@@ -1,5 +1,6 @@
 """
 Este módulo contiene helpers para el preprocesamiento de datos
+No necesita importar pandas porque la función recibe un objeto pandas
 """
 import numpy as np
 
