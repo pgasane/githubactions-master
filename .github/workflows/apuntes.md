@@ -10,4 +10,6 @@ Cuesta crearlo al principio, pero luego sirve para todos los proyectos
 En definitiva, permite crear Flujos de Trabajo potentes de distribución de paquetes CI/CD 
 
 # Para comentar en YML se usa la almohadilla
-#
+
+# GITHUB CLAVE DE ACCESO
+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
