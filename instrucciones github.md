@@ -59,3 +59,28 @@ ejecutes un comando más largo
 Si os pide: "Are you sure you want to continue connecting (yes/no/[fingerprint])?": yes
 
 # ¿Qué hacemos cuando el github se desconecta?
+- (base) GSN:gh-master pgasane$ gh ssh-key list
+HTTP 404: Not Found (https://api.github.com/user/keys?per_page=100)
+This API operation needs the "admin:public_key" scope. To request it, run:  gh auth refresh -h github.com -s admin:public_key
+
+- (base) GSN:gh-master pgasane$ "gh auth refresh -h github.com -s admin:public_key"
+
+! First copy your one-time code: E875-B532
+Press Enter to open github.com in your browser... 
+✓ Authentication complete.
+
+- (base) GSN:gh-master pgasane$ gh ssh-key list
+TITLE       ID        KEY                                                                               ADDED
+GitHub CLI  71700713  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINy/i/Q/EgFo3ujPXpQ7WcG9fzGa0x41/vF/+L5A+tP/  6d
+
+- (base) GSN:gh-master pgasane$ git push
+Enumerating objects: 25, done.
+Counting objects: 100% (25/25), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (21/21), 2.42 KiB | 2.42 MiB/s, done.
+Total 21 (delta 7), reused 0 (delta 0)
+remote: Resolving deltas: 100% (7/7), completed with 1 local object.
+To github.com:pgasane/githubactions-master.git
+   14ac9c6..04ae209  master -> master
+

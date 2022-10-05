@@ -14,5 +14,11 @@ En definitiva, permite crear Flujos de Trabajo potentes de distribución de paqu
 # GITHUB CLAVE DE ACCESO
 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
 
-# GITHUB CLAVE DE ACCESO
-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
+# GITHUB ENTORNO DE EJECUCIÓN
+El código se ejecuta en un CONTENEDOR con la configuración específica que se necesita de forma transparente al programador (no tenemos que preocuparnos del hard ni del entorno)
+
+# PARA VER EN VIVO LA EJECUCIÓN DEL RUN
+"git run watch" va siguiendo el proceso con una presentación muy chula
+
+
+
