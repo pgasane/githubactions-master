@@ -4,27 +4,20 @@ jobs: # Solo vamos a ejecutar uno
   building:
     runs-on: ubuntu-latest
     steps: 
-    # Checkout para copiar el Repositorio. Ejemplos: github.com/actions/checkout, github.com/actions/setup-python
-      - uses: actions/checkout@v3
-    # Definimos versión python 4 como requisito   
-      - uses: actions/setup-python@v4 
+      - uses: actions/checkout@v3         # Checkout para copiar el Repositorio. Ejemplos: github.com/actions/checkout, github.com/actions/setup-python  
+      - uses: actions/setup-python@v4     # Definimos versión python 4 como requisito 
         with:
           python-version: '3.10'
-    # Forzamos la instalación de Poetry versión 1
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-    # Ejecutamos poetry build en la consola del repositorio
-      - run: poetry build 
-    # Ejecuto el comando ls ${{ github.workspace }} en consola en la ruta del repositorio. Un ls del workspace, en este caso. Importante: ${{ github.workspace }}
-      - run: ls ${{ github.workspace }} 
-    # Añadir Publish para publicar los binarios. Buscamos en github.com/marketplace. Tener en cuenta estrellas, desarrollador, mantenido por GitHub o referenciado por GitHub
+      - name: Install Poetry                # Instalamos Poetry 
+        uses: snok/install-poetry@v1        # Forzamos la instalación de Poetry versión 1
+      - run: poetry build                   # Ejecutamos poetry build en la consola del repositorio
+      - run: ls ${{ github.workspace }}     # Ejecuto el comando ls ${{ github.workspace }} en consola en la ruta del repositorio. Un ls del workspace, en este caso. Importante: ${{ github.workspace }}
       - name: Publish to GH Releases
         uses: softprops/action-gh-release@v1
         with:
-          name: error_tag_name
-          tag_name: error_tag_name
-          files: ${{ github.workspace }}/dist/* # Subimos todos los binarios
-          # name: nombre_cualquiera. # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA
-          # tag_name: etiqueta_cualquiera # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA
-          # Las Etiquetas una vez creadas NO SE DEBEN MODIFICAR para garantizar la veracidad de las versiones
-          # La versión se establece en pyproject.toml dentro de la carpeta del proyecto
+          files: ${{ github.workspace }}/dist/* # Subimos todos los binarios. name: nombre_cualquiera. # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después.
+          # LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA. # tag_name: etiqueta_cualquiera # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. 
+          # LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA. Las Etiquetas una vez creadas NO SE DEBEN MODIFICAR para garantizar la veracidad de las versiones. La versión se establece
+          # en pyproject.toml dentro de la carpeta del proyecto
+          # name: error_tag_name
+          # tag_name: error_tag_name
