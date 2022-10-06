@@ -21,7 +21,6 @@ jobs: # Solo vamos a ejecutar uno
       - name: Publish to GH Releases
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: salvar_fallo
           files: ${{ github.workspace }}/dist/* # Subimos todos los binarios
           # name: nombre_cualquiera. # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA
           # tag_name: etiqueta_cualquiera # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA
