@@ -17,5 +17,5 @@ jobs: # Solo vamos a ejecutar uno
         uses: softprops/action-gh-release@v1
         with:
           files: ${{ github.workspace }}/dist/* # Subimos todos los binarios
-          name: nombre_cualquiera
-          tag_name: etiqueta_cualquiera
+          name: nombre_cualquiera. # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después
+          tag_name: etiqueta_cualquiera # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después
