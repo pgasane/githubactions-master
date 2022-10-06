@@ -1,5 +1,5 @@
 import pandas as pd
-from modeltools.preprocessing import get_numerical_features
+from modeltools.preprocessing import get_numerical_features # Hay que importar las funciones que hay que testearpyte
 
 def test_get_numerical_features_simple():
     """En este vamos a probar que logra distinguir

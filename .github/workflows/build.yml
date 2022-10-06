@@ -14,6 +14,8 @@ jobs: # Solo vamos a ejecutar uno
           python-version: '3.10'
       - name: Install Poetry                # Instalamos Poetry 
         uses: snok/install-poetry@v1        # Forzamos la instalación de Poetry versión 1
+      - name: Testing
+        run: poetry run pytest
       - run: poetry build                   # Ejecutamos poetry build en la consola del repositorio
       - run: ls ${{ github.workspace }}     # Ejecuto el comando ls ${{ github.workspace }} en consola en la ruta del repositorio. Un ls del workspace, en este caso. Importante: ${{ github.workspace }}
       - name: Publish to GH Releases
