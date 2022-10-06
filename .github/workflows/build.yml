@@ -1,8 +1,8 @@
 name: Building # Nombre del workflow
 on: [push]
-#  push:
-#    tags:
-#      - "v*.*.*" # Este on solo se ejecuta cuando hay etiqueta
+  push:
+    tags:
+      - "v*.*.*" # Este on solo se ejecuta cuando hay etiqueta
 
 jobs: # Solo vamos a crear uno
   building:
