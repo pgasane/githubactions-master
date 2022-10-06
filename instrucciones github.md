@@ -84,3 +84,18 @@ remote: Resolving deltas: 100% (7/7), completed with 1 local object.
 To github.com:pgasane/githubactions-master.git
    14ac9c6..04ae209  master -> master
 
+# DOCKER gh auth login
+# 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
+(base) jovyan@c86d58b943e0:~$ gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? SSH
+? Upload your SSH public key to your GitHub account? /home/jovyan/.ssh/id_ed25519.pub
+? Title for your SSH key: GitHub CLI
+? How would you like to authenticate GitHub CLI? Paste an authentication token
+Tip: you can generate a Personal Access Token here https://github.com/settings/tokens
+The minimum required scopes are 'repo', 'read:org', 'admin:public_key'.
+? Paste your authentication token: ****************************************
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+✓ Uploaded the SSH key to your GitHub account: /home/jovyan/.ssh/id_ed25519.pub
+✓ Logged in as pgasane
