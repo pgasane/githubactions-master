@@ -4,14 +4,19 @@ jobs: # Solo vamos a ejecutar uno
   building:
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v3 # Checkout para copiar el Repositorio. Ejemplos: github.com/actions/checkout, github.com/actions/setup-python
+    # Checkout para copiar el Repositorio. Ejemplos: github.com/actions/checkout, github.com/actions/setup-python
+      - uses: actions/checkout@v3
+    # Definimos versión python 4 como requisito   
       - uses: actions/setup-python@v4 
         with:
           python-version: '3.10'
+    # Forzamos la instalación de Poetry versión 1
       - name: Install Poetry
         uses: snok/install-poetry@v1
-      - run: poetry build # Ejecuto un comando de consola en el repositorio
-      - run: ls ${{ github.workspace }} # Ejecuto el comando de consola en el repositorio. Un ls del workspace, en este caso. Importante: ${{ github.workspace }}
+    # Ejecutamos poetry build en la consola del repositorio
+      - run: poetry build 
+    # Ejecuto el comando ls ${{ github.workspace }} en consola en la ruta del repositorio. Un ls del workspace, en este caso. Importante: ${{ github.workspace }}
+      - run: ls ${{ github.workspace }} 
     # Añadir Publish para publicar los binarios. Buscamos en github.com/marketplace. Tener en cuenta estrellas, desarrollador, mantenido por GitHub o referenciado por GitHub
       - name: Publish to GH Releases
         uses: softprops/action-gh-release@v1
