@@ -2,7 +2,7 @@
 name = "modeltools"
 version = "0.2.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Pedro Gasané"]
 
 [tool.poetry.dependencies]
 python = "^3.9"

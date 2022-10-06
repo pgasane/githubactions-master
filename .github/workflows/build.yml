@@ -21,6 +21,7 @@ jobs: # Solo vamos a ejecutar uno
       - name: Publish to GH Releases
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: ${{ steps.tag.outputs.release_tag }}.  # Salvamos el error al no existir la definición del tag
           files: ${{ github.workspace }}/dist/* # Subimos todos los binarios
           # name: nombre_cualquiera. # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA
           # tag_name: etiqueta_cualquiera # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA
