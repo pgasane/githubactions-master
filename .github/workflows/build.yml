@@ -1,11 +1,9 @@
 name: Building # Nombre del WorkFlow
-on: 
-  push:
-    tags:
-      - "V*.*.*". # Se ejecuta solo cuando hay etiqueta de versión 
-
+on: [push]
+  tags:
+    - "v*.*.*". # Se ejecuta solo cuando hay etiqueta de versión 
 jobs: # Solo vamos a ejecutar uno
-  building:
+  building:F
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v3         # Checkout para copiar el Repositorio. Ejemplos: github.com/actions/checkout, github.com/actions/setup-python  
