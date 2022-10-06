@@ -1,5 +1,5 @@
 name: Building # Nombre del WorkFlow
-on: [push]
+on: 
   push:
     tags:
       - "V*.*.*". # Se ejecuta solo cuando hay etiqueta de versión 
