@@ -53,6 +53,8 @@ STATUS  TITLE                                                                   
     git push --global push.followTags true. # Esto hace que las anteriores tag anotadas olvidadas se suban al hacer el push de la tag
 - # git push origin v1.5 NO SUBE LA RAMA MÁSTER... No recomendada
 
+# BORRANDO LOS FICHEROS ANTIGUOS DE LA CARPETA DIST
+- Se añade gitignore para eliminar toda la "basura" de las ejecuciones e instalaciones
 
 
 
