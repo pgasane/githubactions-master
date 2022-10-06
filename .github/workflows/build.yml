@@ -14,6 +14,8 @@ jobs: # Solo vamos a ejecutar uno
           python-version: '3.10'
       - name: Install Poetry                # Instalamos Poetry 
         uses: snok/install-poetry@v1        # Forzamos la instalación de Poetry versión 1
+      - name: Install dependencies
+        run: poetry install
       - name: Testing
         run: poetry run pytest
       - run: poetry build                   # Ejecutamos poetry build en la consola del repositorio
