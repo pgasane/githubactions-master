@@ -1,30 +1,65 @@
-name: Building # Nombre del WorkFlow
-on: [push] # Cuando se ejecuta el push
-  push:
-    tags:
-      - "v*.*.*". # Se ejecuta solo cuando hay etiqueta de versión 
-jobs: # Solo vamos a ejecutar uno
-  building:F
+name: Building # Nombre del workflow
+on: [push]
+#  push:
+#    tags:
+#      - "v*.*.*" # Este on solo se ejecuta cuando hay etiqueta
+
+jobs: # Solo vamos a crear uno
+  building:
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v3         # Checkout para copiar el Repositorio. Ejemplos: github.com/actions/checkout, github.com/actions/setup-python  
-      - uses: actions/setup-python@v4     # Definimos versión python 4 como requisito 
+    steps:
+      - uses: actions/checkout@v3 # Copiamos el repositorio
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - name: Install Poetry                # Instalamos Poetry 
-        uses: snok/install-poetry@v1        # Forzamos la instalación de Poetry versión 1
+      - name: Install Poetry 
+        uses: snok/install-poetry@v1
       - name: Install dependencies
         run: poetry install
       - name: Testing
-        run: poetry run pytest
-      - run: poetry build                   # Ejecutamos poetry build en la consola del repositorio
-      - run: ls ${{ github.workspace }}     # Ejecuto el comando ls ${{ github.workspace }} en consola en la ruta del repositorio. Un ls del workspace, en este caso. Importante: ${{ github.workspace }}
+        run: poetry run pytest --junitxml=jest-junit.xml --cov=modeltools --cov-report=lcov --cov-report=xml
+      - uses: actions/upload-artifact@v2  # upload test results
+        if: success() || failure()        # run this step even if previous step failed
+        with:
+          name: test-results
+          path: jest-junit.xml
+      - uses: dorny/test-reporter@v1
+        with:
+          path: jest-junit.xml
+          #artifact: test-results            # artifact name
+          name: JEST Tests                  # Name of the check run which will be created
+          #path: '*.xml'                     # Path to test results (inside artifact .zip)
+          reporter: java-junit              # Format of test results
+#      - uses: romeovs/lcov-reporter-action@v0.2.16
+#        with:
+#          lcov-file: coverage.lcov
+      - name: Code Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage*.xml
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '60 80'
+      
+      - uses: devmasx/coverage-check-action@v1.2.0
+        with:
+          type: lcov
+          result_path: coverage.lcov
+          min_coverage: 90
+          token: ${{ github.token }}
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          recreate: true
+          path: code-coverage-results.md
+      - run: poetry build # Ejecuto un comando de consola en el repo.
       - name: Publish to GH Releases
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ github.workspace }}/dist/* # Subimos todos los binarios. name: nombre_cualquiera. # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después.
-          # LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA. # tag_name: etiqueta_cualquiera # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. 
-          # LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA. Las Etiquetas una vez creadas NO SE DEBEN MODIFICAR para garantizar la veracidad de las versiones. La versión se establece
-          # en pyproject.toml dentro de la carpeta del proyecto
-          #name: cualquier #tag_name: cualquier
-
+          files: ${{ github.workspace }}/dist/*
