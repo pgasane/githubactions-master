@@ -17,3 +17,5 @@ jobs: # Solo vamos a ejecutar uno
         uses: softprops/action-gh-release@v1
         with:
           files: ${{ github.workspace }}/dist/* # Subimos todos los binarios
+          name: nombre_cualquiera
+          tag_name: etiqueta_cualquiera

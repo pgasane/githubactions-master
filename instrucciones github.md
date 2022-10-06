@@ -59,6 +59,7 @@ ejecutes un comando más largo
 Si os pide: "Are you sure you want to continue connecting (yes/no/[fingerprint])?": yes
 
 # ¿Qué hacemos cuando el github se desconecta?
+# "gh auth refresh -h github.com -s admin:public_key"
 - (base) GSN:gh-master pgasane$ gh ssh-key list
 HTTP 404: Not Found (https://api.github.com/user/keys?per_page=100)
 This API operation needs the "admin:public_key" scope. To request it, run:  gh auth refresh -h github.com -s admin:public_key
