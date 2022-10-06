@@ -12,3 +12,8 @@ jobs: # Solo vamos a ejecutar uno
         uses: snok/install-poetry@v1
       - run: poetry build # Ejecuto un comando de consola en el repositorio
       - run: ls ${{ github.workspace }} # Ejecuto el comando de consola en el repositorio. Un ls del workspace, en este caso. Importante: ${{ github.workspace }}
+    # Añadir Publish para publicar los binarios. Buscamos en github.com/marketplace. Tener en cuenta estrellas, desarrollador, mantenido por GitHub o referenciado por GitHub
+      - name: Publish to GH Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ github.workspace }}/dist/* # Subimos todos los binarios

@@ -31,7 +31,14 @@ STATUS  TITLE                                                                   
 ✓       Carga Apuntes Verificar GitHub funciona                                 Building             master  push   3190638202  11s      46m
 ✓       pgasane is testing out GitHub Actions 🚀                                GitHub Actions Demo  master  push   3187496862  14s      10h
 
-# RELEASES
+# RELEASES. ETIQUETANDO VERSIONES
+- ETIQUETADO: se usa para subir los BINARIOS de nuestro trabajo
+- Usaremos github-actions para automatizar el proceso
+- Podemos subir binarios sin códigos fuente o incluirlos (decisión del autor)
+- Los archivos yml se ejecutan todos si están en la carpeta workflows
+- No existe orden ni interdependencia entre ellos. En nuestro caso build.yml y menganito.yml NO tiene relación alguna
+- Diferencia entre JOB y WORKFLOWS: los workflows se pueden ejecutar en PARALELO. Los STEPS son secuenciales
+
 
 
 
