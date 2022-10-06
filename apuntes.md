@@ -38,6 +38,25 @@ STATUS  TITLE                                                                   
 - Los archivos yml se ejecutan todos si están en la carpeta workflows
 - No existe orden ni interdependencia entre ellos. En nuestro caso build.yml y menganito.yml NO tiene relación alguna
 - Diferencia entre JOB y WORKFLOWS: los workflows se pueden ejecutar en PARALELO. Los STEPS son secuenciales
+- Nota Profesor: recomiendo que git push siempre lo hagan a mano
+- gh run watch
+- gh run list
+- Todos los desarrollos de software usan GIT
+- Material de Lectura GIT: https://git-scm.com/book/en/v2
+- # TAG: se usa para establecer LAS NUEVAS VERSIONES de un desarrollo
+- # IMPORTANTE: GIT no mira el código del proyecto. Por eso necesita la ETIQUETA para saber la Versión
+- # ETIQUETAS ANOTADAS (Annotated Tags): permiten poner comentarios
+    git tag -a V1.4 -m "my version 1.4"
+    git log # Vemos los tag creados
+    git push --follow-tags  # Revisa los commit y solo sube las ANOTADAS que no se hayan subido. La idea es ANOTAR LAS TAGS IMPORTANTES
+- # RECOMENDACIÓN PROFESOR: 
+    git push --global push.followTags true. # Esto hace que las anteriores tag anotadas olvidadas se suban al hacer el push de la tag
+- # git push origin v1.5 NO SUBE LA RAMA MÁSTER... No recomendada
+
+
+
+
+
 
 
 

@@ -1,5 +1,9 @@
 name: Building # Nombre del WorkFlow
 on: [push] # Cuando se ejecuta el push
+  push:
+    tags:
+      - "v*.*.*". # Se ejecuta solo cuando hay etiqueta de versión 
+
 jobs: # Solo vamos a ejecutar uno
   building:
     runs-on: ubuntu-latest
