@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "modeltools"
 version = "0.2.0"
-description = ""
+description = "modeltools"
 authors = ["Pedro Gasané"]
 
 [tool.poetry.dependencies]
