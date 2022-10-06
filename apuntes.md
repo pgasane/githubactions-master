@@ -56,6 +56,21 @@ STATUS  TITLE                                                                   
 # BORRANDO LOS FICHEROS ANTIGUOS DE LA CARPETA DIST
 - Se añade gitignore para eliminar toda la "basura" de las ejecuciones e instalaciones
 
+# HACIENDO TESTING DEL PROYECTO E INCLUIRLO EN EL PAQUETE
+- Se trata de demostrar que el proyecto hace lo que dice que hace
+- Se crea una carpeta "tests" fuera del paquete y se añade --init--.py
+- El código que pongamos dentro solo se usará en el proceso de BUILDING
+- Por cada fichero del modelo se crea uno de testing: preprocessing.py y test_preprocessing.py (dentro de la carpeta tests)
+- Usamos la librería pytest
+- Solo usaremos pytest antes de hacer el BUILDING para, si todo sale bien, montar el paquete binario
+- "poetry add -D pytest" instala como dependencia para los procesos de testing
+- Instalamos la herramienta mamba para instalar pytest en local:
+    - En Docker: mamba install -c conda-forge pytest
+    - En conda: conda install -c conda-forge pytest
+- Se ejecuta "pytest" desde consola. La utilidad se encarga de buscar los módulos test_*, probarlos y devolver los resultados
+
+
+
 
 
 
