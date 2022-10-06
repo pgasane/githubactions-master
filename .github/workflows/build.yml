@@ -15,9 +15,10 @@ jobs: # Solo vamos a ejecutar uno
       - name: Publish to GH Releases
         uses: softprops/action-gh-release@v1
         with:
+          name: sin_tag_falla
+          tag_name: sin_tag_falla
           files: ${{ github.workspace }}/dist/* # Subimos todos los binarios. name: nombre_cualquiera. # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después.
           # LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA. # tag_name: etiqueta_cualquiera # Parámetros obligatorios. Ha dado error por lo que los hemos añadido después. 
           # LO COMENTAMOS PARA HACERLO DE FORMA CORRECTA. Las Etiquetas una vez creadas NO SE DEBEN MODIFICAR para garantizar la veracidad de las versiones. La versión se establece
           # en pyproject.toml dentro de la carpeta del proyecto
-          # name: error_tag_name
-          # tag_name: error_tag_name
+
